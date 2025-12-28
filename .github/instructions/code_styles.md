@@ -1,5 +1,33 @@
 # Formatting & Style Rules (Strict)
 
+## JavaScript Module System
+
+All **JavaScript (.js)** files in this project MUST use **CommonJS** syntax.
+
+### Rules
+- Use `require()` instead of `import`
+- Use `module.exports` instead of `export`
+- Do NOT use ES Modules syntax in `.js` files
+
+### Examples
+
+✅ Correct (CommonJS)
+```js
+const fs = require("fs");
+
+module.exports = {
+  readConfig,
+};
+```
+
+❌ Incorrect (ESM in JS files)
+```js
+import fs from "fs";
+export default {};
+```
+
+---
+
 ## Indentation
 
 * **Indentation: 2 spaces**

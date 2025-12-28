@@ -1,61 +1,21 @@
-import js from "@eslint/js";
-import tseslint from "@typescript-eslint/eslint-plugin";
-import tsParser from "@typescript-eslint/parser";
+import '@/styles/globals.css'
+import type { Metadata } from 'next'
 
-export default [
-  {
-    ignores: [
-      ".next/**",
-      "node_modules/**",
-      "dist/**",
-      "build/**",
-    ],
-  },
+export const metadata: Metadata = {
+  title: 'Minecraft Store',
+  description: 'Minecraft Store Website',
+}
 
-  {
-    files: ["**/*.{js,jsx,ts,tsx}"],
-    languageOptions: {
-      parser: tsParser,
-      parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module",
-        ecmaFeatures: {
-          jsx: true,
-        },
-        project: "./tsconfig.json",
-      },
-      globals: {
-        React: "readonly",
-      },
-    },
-    plugins: {
-      "@typescript-eslint": tseslint,
-    },
-    rules: {
-      ...js.configs.recommended.rules,
-      ...tseslint.configs.recommended.rules,
-      "no-undef": "off",
-      "@typescript-eslint/naming-convention": [
-        "error",
-        {
-          selector: "variableLike",
-          format: ["camelCase"],
-          leadingUnderscore: "allow",
-        },
-        {
-          selector: "function",
-          format: ["camelCase", "PascalCase"],
-        },
-        {
-          selector: "typeLike",
-          format: ["PascalCase"],
-        },
-        {
-          selector: "property",
-          format: ["camelCase", "PascalCase"],
-          leadingUnderscore: "allow",
-        },
-      ],
-    }
-  },
-];
+type RootLayoutProps = {
+  children: React.ReactNode
+}
+
+const RootLayout = ({ children }: RootLayoutProps) => {
+  return (
+    <html lang="en">
+      <body>{children}</body>
+    </html>
+  )
+}
+
+export default RootLayout
