@@ -35,6 +35,27 @@ export default [
       ...js.configs.recommended.rules,
       ...tseslint.configs.recommended.rules,
       "no-undef": "off",
-    },
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          selector: "variableLike",
+          format: ["camelCase"],
+          leadingUnderscore: "allow",
+        },
+        {
+          selector: "function",
+          format: ["camelCase", "PascalCase"],
+        },
+        {
+          selector: "typeLike",
+          format: ["PascalCase"],
+        },
+        {
+          selector: "property",
+          format: ["camelCase", "PascalCase"],
+          leadingUnderscore: "allow",
+        },
+      ],
+    }
   },
 ];
